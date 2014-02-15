@@ -5,7 +5,32 @@ use List::MoreUtils qw/ uniq /;
 
 my ($chrom_start, $thick_start, $RGB);
 
-while(<>){
+sub print_error{
+print<<END_OF_LINE
+cat perl BEDfromTranscripts -\"Options\"
+     Options: 
+           -T                Transcripts: the file of transcripts that you want to view
+           -P                (Y or N):    prints transcripts which don\'t have coordinates in gtf file (use if repeats are removed)
+           -L                Location of gtf file with the exon coordinates
+END_OF_LINE
+}
+
+print_error() and die "Please Retry\n" if (!@ARGV); 
+
+my %opts = @ARGV;
+
+sub check_options{
+    print_error and print "missing -T option, or file with transcripts\n" and die  unless (exists ($opts{-T}));
+    print_error and print "missing -T option, or gtf file              \n"and die unless (exists ($opts{-L}));
+}
+
+check_options();
+
+open my $transcripts,         $opts{-T} or die "Could not open $ARGV{-T}";
+my $exon_coordinates =  $opts{-L};
+
+
+while(<$transcripts>){
     chomp;
     my (@samples, @block_size, @block_start, @sample_group);
     my ($transcript_id, $XLOC, $gene, $cc, $rRNA,@genes) = split(/\t/);
@@ -25,7 +50,7 @@ while(<>){
 	push (@sample_group, $sample_group);
 	$RGB = find_RGB(@sample_group);  # find RGB 
     }
-    my $string = `grep $transcript_id /link/to/sample_locations.gtf`;
+    my $string = `grep $transcript_id  $exon_coordinates`;
 
     if ($string ne ''){
 	my (@lines)   = split(/\n/,$string);
@@ -60,7 +85,7 @@ while(<>){
 
     }
     else{
-#	print "$_\n" ;#if ($opts{-other} =~m/T|TRUE/);
+	print "$_\n" if ( (exists ($opts{-T})) and ($opts{-T}=~m/TRUE|T/) );
     }
 }
 
