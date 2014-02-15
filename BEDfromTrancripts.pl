@@ -20,8 +20,8 @@ print_error() and die "Please Retry\n" if (!@ARGV);
 my %opts = @ARGV;
 
 sub check_options{
-    print_error and print "missing -T option, or file with transcripts\n" and die  unless (exists ($opts{-T}));
-    print_error and print "missing -T option, or gtf file              \n"and die unless (exists ($opts{-L}));
+    print_error and print "missing -T option, or file with transcripts\n" and die unless (exists ($opts{-T}));
+    print_error and print "missing -T option, or gtf file             \n" and die unless (exists ($opts{-L}));
 }
 
 check_options();
