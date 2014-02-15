@@ -19,7 +19,9 @@ In addition, the transcript is color coded based on which group it is expressed 
 	  #purple if present in AD + DLB 
 	  #teal   if present in DLB + CT
 	  #black  if present in all three groups
-	  
+
+Example Output
+-------------------
 chr1	11637558	11644939	8\_00433015\_AD1\_CT2	500	+	11637558	11644939	0,0,255	5	38,294,97,135,1165	0,892,3353,3822,6216
 
 To view output:
