@@ -12,8 +12,11 @@ The transcripts file is a typical output from cuffcompare:
 The output is in a BED file which denotes exon-intron junctions.
 In addition, the transcript is color coded based on which group it is expressed in. 
 
-
-chr1	11625762	11631125	8\_00433011_AD1	500	+	11625762	11631125	255,0,0	2	894,6	0,5357
-chr1	11637212	11641516	8\_00433013_AD1	500	+	11637212	11641516	255,0,0	4	13,294,97,136	0,1238,3699,4168
-chr1	11637514	11644939	8\_00433014_AD1	500	+	11637514	11644939	255,0,0	6	83,287,126,95,135,1165	0,943,3397,3663,3866,6260
+    #lime   if present in CT only 
+	  #blue   if present in AD + CT only
+	  #yellow if present in DLB only
+	  #purple if present in AD + DLB 
+	  #teal   if present in DLB + CT
+	  #black  if present in all three groups
+	  
 chr1	11637558	11644939	8\_00433015\_AD1\_CT2	500	+	11637558	11644939	0,0,255	5	38,294,97,135,1165	0,892,3353,3822,6216
