@@ -24,7 +24,8 @@ Example Output
 -------------------
 chr1	11637558	11644939	8\_00433015\_AD1\_CT2	500	+	11637558	11644939	0,0,255	5	38,294,97,135,1165	0,892,3353,3822,6216
 
-To view output:
+How to Visualize with UCSC Genome Browser
+-----------------------------------------------
 	1. go to this website <http://genome.ucsc.edu/cgi-bin/hgCustom?hgHubConnect.destUrl=..%2Fcgi-bin%2FhgTracks&clade=mammal&org=Human&db=hg18&position=chr19%3A996%2C074-996%2C679&hgt.positionInput=enter+position%2C+gene+symbol+or+search+terms&hgt.suggestTrack=knownGene&hgsid=363174797> 
 	2. place output
 	3. click submit
